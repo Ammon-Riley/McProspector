@@ -20,7 +20,17 @@
             <Button Name="DownALayer" Content="Down A Layer" FontFamily="Batang" Height="30" VerticalAlignment="Bottom" Click="DownALayer_Click"></Button>
         </WrapPanel>
         <DockPanel Grid.Row="1" Grid.RowSpan="2">
-            <Button DockPanel.Dock="Top" Click="goNorth">Go North</Button>
+            <Button x:Name="button" DockPanel.Dock="Top" Click="goNorth" Content="Go North">
+                <Button.Style>
+                    <Style>
+                        <Style.Triggers>
+                            <Trigger Property="Button.IsMouseOver" Value="True">
+                                <Setter Property="Button.Background" Value="Red" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
             <Button DockPanel.Dock="Bottom" Click="goSouth">Go South</Button>
             <Button DockPanel.Dock="Left" Click="goWest">Go West</Button>
             <Button DockPanel.Dock="Right" Click="goEast">Go East</Button>

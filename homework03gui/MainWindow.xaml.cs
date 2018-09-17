@@ -39,7 +39,32 @@ namespace homework03gui
         public MainWindow()
         {
             this.DataContext = mcReader;
+            this.KeyDown += new KeyEventHandler(goDirection);
             InitializeComponent();
+        }
+
+        private void goDirection(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.A)
+            {
+                var test = mcReader.goWest();
+                if (test != true) MessageBox.Show("Chunk does not exist!");
+            }
+            if (e.Key == Key.W)
+            {
+                var test = mcReader.goNorth();
+                if (test != true) MessageBox.Show("Chunk does not exist!");
+            }
+            if (e.Key == Key.S)
+            {
+                var test = mcReader.goSouth();
+                if (test != true) MessageBox.Show("Chunk does not exist!");
+            }
+            if (e.Key == Key.D)
+            {
+                var test = mcReader.goEast();
+                if (test != true) MessageBox.Show("Chunk does not exist!");
+            }
         }
 
         private void goNorth(object sender, RoutedEventArgs e)
